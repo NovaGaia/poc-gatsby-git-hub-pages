@@ -7,6 +7,8 @@
   Gatsby minimal starter
 </h1>
 
+[![Gatsby Publish](https://github.com/NovaGaia/poc-gatsby-git-hub-pages/actions/workflows/old-pages.yml/badge.svg)](https://github.com/NovaGaia/poc-gatsby-git-hub-pages/actions/workflows/old-pages.yml)
+
 ## 🚀 Quick start
 
 1.  **Create a Gatsby site.**
