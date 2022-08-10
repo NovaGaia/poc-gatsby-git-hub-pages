@@ -9,48 +9,36 @@
 
 [![Gatsby Publish](https://github.com/NovaGaia/poc-gatsby-git-hub-pages/actions/workflows/pages.yml/badge.svg)](https://github.com/NovaGaia/poc-gatsby-git-hub-pages/actions/workflows/pages.yml)
 
-## 🚀 Quick start
+## 🚀 Quick start | Auto publish w/ `GitHub Actions` to `GitHub Pages`
 
-1.  **Create a Gatsby site.**
+- set `ACCESS_TOKEN` in [/settings/secrets/actions](/settings/secrets/actions) w/ your [Personnal Token](https://github.com/settings/tokens)
+- add in `/.github/workflows` an new file `pages.yml`
+- add this content (change branches name if needed) :
 
-    Use the Gatsby CLI to create a new site, specifying the minimal starter.
+```yml
+name: Gatsby Publish
 
-    ```shell
-    # create a new Gatsby site using the minimal starter
-    npm init gatsby
-    ```
+on:
+  push:
+    branches:
+      - main
 
-2.  **Start developing.**
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: enriikke/gatsby-gh-pages-action@v2
+        with:
+          access-token: ${{ secrets.ACCESS_TOKEN }}
+          deploy-branch: gh-pages
+          gatsby-args: --prefix-paths
+```
 
-    Navigate into your new site’s directory and start it up.
+- in you GitHub repo, set repo as `public`.
+- go to repo [Settings>Pages](/settings/pages) and enabled `Deploy from a branch` and
+  - set `gh-pages` as `branch
+  - set `/(root)` as folder
+  - click save
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
-
-3.  **Open the code and start customizing!**
-
-    Your site is now running at http://localhost:8000!
-
-    Edit `src/pages/index.js` to see your site update in real-time!
-
-4.  **Learn more**
-
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-## 🚀 Quick start (Gatsby Cloud)
-
-Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
-
-[<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-minimal)
+Make your commit/push.
