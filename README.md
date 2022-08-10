@@ -7,7 +7,7 @@
   Gatsby minimal starter
 </h1>
 
-[![Gatsby Publish](https://github.com/NovaGaia/poc-gatsby-git-hub-pages/actions/workflows/old-pages.yml/badge.svg)](https://github.com/NovaGaia/poc-gatsby-git-hub-pages/actions/workflows/old-pages.yml)
+[![Gatsby Publish](https://github.com/NovaGaia/poc-gatsby-git-hub-pages/actions/workflows/pages.yml/badge.svg)](https://github.com/NovaGaia/poc-gatsby-git-hub-pages/actions/workflows/pages.yml)
 
 ## 🚀 Quick start
 
